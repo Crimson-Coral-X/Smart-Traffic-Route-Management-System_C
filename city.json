@@ -1,0 +1,121 @@
+{
+  "name": "Demo City",
+  "description": "Eight-intersection demonstration network",
+  "nodes": [
+    {
+      "id": 0,
+      "name": "Central Square",
+      "x": 50,
+      "y": 50
+    },
+    {
+      "id": 1,
+      "name": "Tech Park",
+      "x": 28,
+      "y": 28
+    },
+    {
+      "id": 2,
+      "name": "City Hospital",
+      "x": 28,
+      "y": 72
+    },
+    {
+      "id": 3,
+      "name": "Railway Station",
+      "x": 50,
+      "y": 20
+    },
+    {
+      "id": 4,
+      "name": "University Gate",
+      "x": 50,
+      "y": 80
+    },
+    {
+      "id": 5,
+      "name": "Airport Junction",
+      "x": 78,
+      "y": 72
+    },
+    {
+      "id": 6,
+      "name": "Market Street",
+      "x": 72,
+      "y": 35
+    },
+    {
+      "id": 7,
+      "name": "River Bridge",
+      "x": 82,
+      "y": 18
+    }
+  ],
+  "roads": [
+    {
+      "from": 0,
+      "to": 1,
+      "weight": 8
+    },
+    {
+      "from": 0,
+      "to": 2,
+      "weight": 12
+    },
+    {
+      "from": 0,
+      "to": 6,
+      "weight": 7
+    },
+    {
+      "from": 1,
+      "to": 3,
+      "weight": 10
+    },
+    {
+      "from": 1,
+      "to": 4,
+      "weight": 9
+    },
+    {
+      "from": 2,
+      "to": 4,
+      "weight": 6
+    },
+    {
+      "from": 2,
+      "to": 5,
+      "weight": 15
+    },
+    {
+      "from": 3,
+      "to": 5,
+      "weight": 11
+    },
+    {
+      "from": 3,
+      "to": 6,
+      "weight": 5
+    },
+    {
+      "from": 4,
+      "to": 6,
+      "weight": 8
+    },
+    {
+      "from": 4,
+      "to": 7,
+      "weight": 13
+    },
+    {
+      "from": 5,
+      "to": 7,
+      "weight": 9
+    },
+    {
+      "from": 6,
+      "to": 7,
+      "weight": 10
+    }
+  ]
+}

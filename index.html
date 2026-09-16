@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Traffic Route Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">ST</div>
+    <div><h1>SMART TRAFFIC</h1><span>ROUTE MANAGEMENT SYSTEM</span></div>
+  </div>
+  <div class="system-state"><i></i> SYSTEM ONLINE <b id="clock">--:--:--</b></div>
+</header>
+
+<main class="layout">
+  <aside class="sidebar">
+    <div class="side-title">CONTROL CENTER</div>
+    <button class="nav active" data-view="dashboard">◈ Dashboard</button>
+    <button class="nav" data-view="routes">⌁ Route Optimizer</button>
+    <button class="nav" data-view="traffic">◉ Traffic Control</button>
+    <button class="nav" data-view="emergency">✦ Emergency Mode</button>
+    <button class="nav" data-view="infrastructure">◇ Infrastructure</button>
+    <div class="side-card">
+      <span>NETWORK HEALTH</span>
+      <strong id="health">100%</strong>
+      <div class="meter"><i id="healthBar"></i></div>
+    </div>
+    <div class="side-card">
+      <span>ALGORITHM ENGINE</span>
+      <p>Dijkstra <em>READY</em></p>
+      <p>Kruskal <em>READY</em></p>
+      <p>BFS / DFS <em>READY</em></p>
+    </div>
+  </aside>
+
+  <section class="content">
+    <div id="dashboard" class="view active-view">
+      <div class="hero">
+        <div><p class="eyebrow">CITY NETWORK / LIVE OPERATIONS</p>
+        <h2>Traffic intelligence,<br><span>optimized in real time.</span></h2>
+        <p>Interactive graph analytics for routing, emergency response and infrastructure planning.</p></div>
+        <div class="hero-chip">GRAPH<br><b>ONLINE</b></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>INTERSECTIONS</span><b id="nodeCount">8</b></div>
+        <div class="stat"><span>ACTIVE ROADS</span><b id="roadCount">13</b></div>
+        <div class="stat"><span>AVG. TRAFFIC</span><b id="avgTraffic">—</b></div>
+        <div class="stat"><span>CONNECTIVITY</span><b class="green" id="connectivity">100%</b></div>
+      </div>
+      <div class="panel map-panel">
+        <div class="panel-head"><div><span class="eyebrow">NETWORK VISUALIZER</span><h3>City Traffic Graph</h3></div>
+          <div class="legend"><span><i class="dot green"></i> Low</span><span><i class="dot yellow"></i> Moderate</span><span><i class="dot red"></i> Congested</span></div>
+        </div>
+        <div id="map" class="map"></div>
+      </div>
+    </div>
+
+    <div id="routes" class="view">
+      <div class="page-title"><span class="eyebrow">ALGORITHM / DIJKSTRA</span><h2>Route Optimizer</h2><p>Find the minimum traffic-cost path between two intersections.</p></div>
+      <div class="two-col">
+        <div class="panel form-panel">
+          <label>SOURCE INTERSECTION</label><select id="routeSource"></select>
+          <label>DESTINATION INTERSECTION</label><select id="routeTarget"></select>
+          <button class="primary" id="findRoute">CALCULATE FASTEST ROUTE →</button>
+          <div id="routeResult" class="result hidden"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Algorithm Logic</h3><span class="tag">O(V² + E)</span></div>
+          <ol class="logic"><li>Select minimum unvisited distance.</li><li>Relax all outgoing roads.</li><li>Repeat until destination is finalized.</li><li>Trace parent nodes to reconstruct route.</li></ol>
+        </div>
+      </div>
+      <div class="panel map-panel"><div class="panel-head"><h3>Route Visualization</h3></div><div id="routeMap" class="map small-map"></div></div>
+    </div>
+
+    <div id="traffic" class="view">
+      <div class="page-title"><span class="eyebrow">LIVE CONTROL / WEIGHT MANAGEMENT</span><h2>Traffic Control</h2><p>Modify road weights to simulate changing congestion.</p></div>
+      <div class="panel">
+        <div class="table-wrap"><table><thead><tr><th>ROAD</th><th>WEIGHT</th><th>STATUS</th><th>CONTROL</th></tr></thead><tbody id="trafficTable"></tbody></table></div>
+      </div>
+    </div>
+
+    <div id="emergency" class="view">
+      <div class="page-title"><span class="eyebrow">PRIORITY RESPONSE / BFS + DFS</span><h2>Emergency Mode</h2><p>Validate reachability and generate an emergency traversal order.</p></div>
+      <div class="two-col">
+        <div class="panel form-panel"><label>DISPATCH FROM</label><select id="emergencySource"></select>
+          <button class="primary" id="runBfs">RUN BFS CLEARANCE</button>
+          <button class="secondary" id="runDfs">RUN DFS VALIDATION</button>
+          <div id="emergencyResult" class="result"></div></div>
+        <div class="panel"><h3>Emergency Network Status</h3><div class="big-status" id="emergencyStatus">NETWORK CONNECTED</div><p class="muted">BFS explores level-by-level, useful for dispatch reachability. DFS provides an independent deep traversal for connectivity validation.</p></div>
+      </div>
+    </div>
+
+    <div id="infrastructure" class="view">
+      <div class="page-title"><span class="eyebrow">OPTIMIZATION / KRUSKAL</span><h2>Infrastructure Planner</h2><p>Build the minimum-cost backbone for sensors, cameras or emergency communications.</p></div>
+      <div class="panel"><button class="primary" id="runMst">CALCULATE MINIMUM SPANNING TREE →</button>
+        <div id="mstResult" class="mst-grid"></div></div>
+    </div>
+  </section>
+</main>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

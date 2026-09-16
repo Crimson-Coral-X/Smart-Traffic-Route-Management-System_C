@@ -1,0 +1,4 @@
+backend/*.o
+backend/traffic_engine
+backend/traffic_engine.exe
+.vscode/
